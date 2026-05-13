@@ -61,6 +61,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 reveals.forEach(el => observer.observe(el));
 
+// ── Reel inline expand ──
+function expandReel(card, embedUrl) {
+  card.innerHTML = `<iframe class="reel-embed" src="${embedUrl}" allowfullscreen scrolling="no" allow="encrypted-media; autoplay; clipboard-write"></iframe>`;
+  card.classList.add('expanded');
+  card.onclick = null;
+}
+
 // ── Package → WhatsApp ──
 function bookPackage(name, price, description) {
   const msg = `Hi! 👋 I love the *${name} Package* (${price} – ${description}) and would love to book a session. Can you tell me more?`;
